@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>ক্যালকুলেটর</title>
+  <style>
+    body {
+      font-family: 'Siyam Rupali', sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+      padding-top: 50px;
+    }
+    .calculator {
+      width: 280px;
+      margin: auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      font-size: 20px;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+    .buttons button {
+      width: 60px;
+      height: 60px;
+      font-size: 20px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .clear {
+      width: 240px;
+      background-color: #e74c3c;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <h2>সরল ক্যালকুলেটর</h2>
+    <input type="text" id="display" disabled>
+    <div class="buttons">
+      <button onclick="appendValue('7')">৭</button>
+      <button onclick="appendValue('8')">৮</button>
+      <button onclick="appendValue('9')">৯</button>
+      <button onclick="appendValue('/')">÷</button>
+      <button onclick="appendValue('4')">৪</button>
+      <button onclick="appendValue('5')">৫</button>
+      <button onclick="appendValue('6')">৬</button>
+      <button onclick="appendValue('*')">×</button>
+      <button onclick="appendValue('1')">১</button>
+      <button onclick="appendValue('2')">২</button>
+      <button onclick="appendValue('3')">৩</button>
+      <button onclick="appendValue('-')">−</button>
+      <button onclick="appendValue('0')">০</button>
+      <button onclick="appendValue('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="appendValue('+')">+</button>
+      <button class="clear" onclick="clearDisplay()">সাফ করুন</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+
+    function appendValue(val) {
+      display.value += val;
+    }
+
+    function calculate() {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = 'ত্রুটি';
+      }
+    }
+
+    function clearDisplay() {
+      display.value = '';
+    }
+  </script>
+
+</body>
+</html>
